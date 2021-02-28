@@ -1,0 +1,15 @@
+1. Удаляем соедиение Cross-Over между 1.0.0.12 329C - 1.0.0.11 AA82
+2. Выключаем Hub0, добавляем Ethernet port, включаем.
+3. Подключаем сединением Straight-Through 1.0.0.12 329C к Hub0, 1.0.0.11 AA82 к Hub-RT
+4. Удаляем Cross-Over между 1.0.0.1 AC4A и Hub0
+5. Подключаем сединением Straight-Through между 1.0.0.1 AC4A и Hub0
+6. Удаляем Cross-Over между 1.0.0.3 6BD8 и Hub0
+7. Подключаем сединением Straight-Through между 1.0.0.3 6BD8 и Hub0
+8. Удаляем Straight-Through между Hub0 и Hub1
+9. Подключаем сединением Cross-Over между Hub0 и Hub1
+10. Подключаем Laptop 1.0.0.5 C129. Заходим в 1.0.0.5 C129 (INTERFACE-GigabitEthernet0), ставим "Check" на Auto.
+11. Подключаем Laptop 1.0.0.8 9946. Заходим в 1.0.0.8 9946 (INTERFACE-GigabitEthernet0), ставим "Check" на Auto.
+12. Чтоб подключить 1.0.0.9 31C1 необходимо на Hub1 добавить Ethernet port. Выключаем Hub1, добавляем Ethernet port, включаем.
+13. Подключаем Laptop 1.0.0.9 31C1 сединением Straight-Through к Hub1
+14. Удаляем Straight-Through между Hub1 и Repeater0
+15. Подключаем сединением Cross-Over между Hub1 и Repeater0
