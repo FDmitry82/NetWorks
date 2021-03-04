@@ -1,0 +1,10 @@
+1. Удаляем соедиение Cross-Over между Wireless Router0 - Hub0
+2. Соединяем Cross-Over между Wireless Router0 (Ethernet 4) - Hub0  (FastEthernet 3)
+3. Laptop1 переключаем static на DHCP
+4. Laptop2 переключаем static на DHCP
+5. Удаляем соедиение Cross-Over между Switch1 - Switch6
+6. Подключаем сединением Straight-Through между Switch1 - Switch6
+7. Удаляем записи из Router0-Config-ROUTING-RIP-Network Address
+8. Прописываем новые записи в Router0-Config-ROUTING-Static-Network 1.0.0.0/8 via 1.0.0.2, 11.0.0.0/8 via 11.0.0.2
+9. Переподключаем в нужный порт сединение Straight-Through между Switch6 - Router0
+10. Переподключаем в нужный порт сединение Straight-Through между Router0 - Hub2
