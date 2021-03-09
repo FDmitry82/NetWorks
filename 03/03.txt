@@ -1,0 +1,77 @@
+Настройка Router0 (Fa4/0/172.17.0.1 Fa5/0/172.16.0.1)
+
+1.  interface FastEthernet4/0
+2.  ip address 172.17.0.1 255.255.0.0
+3.  interface FastEthernet4/0  #no shutdown
+4.  interface FastEthernet5/0
+5.  ip address 172.16.0.1 255.255.0.0
+6.  interface FastEthernet4/0  #no shutdown
+7.  ip route 172.17.0.0 255.255.0.0 172.17.0.2
+8.  ip route 172.16.0.0 255.255.0.0 172.16.0.2
+9.  router rip
+10. network 192.168.1.0
+11. network 172.17.0.0
+12. network 172.18.0.0
+
+
+C    172.16.0.0/16 is directly connected, FastEthernet5/0
+C    172.17.0.0/16 is directly connected, FastEthernet4/0
+R    172.18.0.0/16 [120/1] via 172.16.0.2, 00:00:14, FastEthernet5/0
+                   [120/1] via 172.17.0.2, 00:00:06, FastEthernet4/0
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+R    192.168.2.0/24 [120/1] via 172.17.0.2, 00:00:06, FastEthernet4/0
+R    192.168.3.0/24 [120/1] via 172.16.0.2, 00:00:14, FastEthernet5/0
+
+
+------------------------------
+
+Настройка Router1 (Fa4/0/172.17.0.2 Fa5/0/172.18.0.2)
+
+1.  interface FastEthernet4/0
+2.  ip address 172.17.0.2 255.255.0.0
+3.  interface FastEthernet4/0  #no shutdown
+4.  interface FastEthernet5/0
+5.  ip address 172.18.0.2 255.255.0.0
+6.  interface FastEthernet5/0  #no shutdown
+7.  ip route 172.17.0.0 255.255.0.0 172.17.0.1
+8.  ip route 172.18.0.0 255.255.0.0 172.18.0.1
+9.  router rip
+10. network 192.168.2.0
+11. network 172.17.0.0
+12. network 172.18.0.0
+
+
+R    172.16.0.0/16 [120/1] via 172.18.0.1, 00:00:20, FastEthernet5/0
+                   [120/1] via 172.17.0.1, 00:00:07, FastEthernet4/0
+C    172.17.0.0/16 is directly connected, FastEthernet4/0
+C    172.18.0.0/16 is directly connected, FastEthernet5/0
+R    192.168.1.0/24 [120/1] via 172.17.0.1, 00:00:07, FastEthernet4/0
+C    192.168.2.0/24 is directly connected, FastEthernet0/0
+R    192.168.3.0/24 [120/1] via 172.18.0.1, 00:00:20, FastEthernet5/0
+
+
+------------------------------
+
+Настройка Router2 (Fa4/0/172.17.0.2 Fa5/0/172.18.0.1)
+
+1.  interface FastEthernet4/0
+2.  ip address 172.18.0.1 255.255.0.0
+3.  interface FastEthernet4/0  #no shutdown
+4.  interface FastEthernet5/0
+5.  ip address 172.16.0.2 255.255.0.0
+6.  interface FastEthernet5/0  #no shutdown
+7.  ip route 172.16.0.0 255.255.0.0 172.16.0.1
+8.  ip route 172.18.0.0 255.255.0.0 172.18.0.2
+9.  router rip
+10. network 192.168.3.0
+11. network 172.16.0.0
+12. network 172.18.0.0
+
+
+C    172.16.0.0/16 is directly connected, FastEthernet5/0
+R    172.17.0.0/16 [120/1] via 172.18.0.2, 00:00:17, FastEthernet4/0
+                   [120/1] via 172.16.0.1, 00:00:13, FastEthernet5/0
+C    172.18.0.0/16 is directly connected, FastEthernet4/0
+R    192.168.1.0/24 [120/1] via 172.16.0.1, 00:00:13, FastEthernet5/0
+R    192.168.2.0/24 [120/1] via 172.18.0.2, 00:00:17, FastEthernet4/0
+C    192.168.3.0/24 is directly connected, FastEthernet0/0
