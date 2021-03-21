@@ -1,0 +1,124 @@
+﻿--------------------------------------------------
+fa0/1 7.0.0.2/8
+f00/0 192.168.0.0/24
+
+R    1.0.0.0/8 [120/3] via 7.0.0.1, 00:00:03, FastEthernet0/1
+R    5.0.0.0/8 [120/2] via 7.0.0.1, 00:00:03, FastEthernet0/1
+R    6.0.0.0/8 [120/2] via 7.0.0.1, 00:00:03, FastEthernet0/1
+C    7.0.0.0/8 is directly connected, FastEthernet0/1
+     130.1.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.1.0.0/16 [120/4] via 7.0.0.1, 00:00:03, FastEthernet0/1
+R       130.1.0.0/24 [120/1] via 7.0.0.1, 00:00:03, FastEthernet0/1
+     130.2.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.2.0.0/16 is possibly down, routing via 7.0.0.1, FastEthernet0/1
+R       130.2.0.0/24 [120/1] via 7.0.0.1, 00:00:03, FastEthernet0/1
+C    192.168.0.0/24 is directly connected, FastEthernet0/0
+R    220.1.1.0/24 [120/2] via 7.0.0.1, 00:00:03, FastEthernet0/1
+R    220.1.2.0/24 [120/2] via 7.0.0.1, 00:00:03, FastEthernet0/1
+--------------------------------------------------
+
+
+--------------------------------------------------
+Fa4/0 130.2.0.2/24
+Fa5/0 130.1.0.2/24
+f0/0 7.0.0.1/8
+
+R    1.0.0.0/8 [120/2] via 130.1.0.3, 00:00:27, FastEthernet5/0
+               [120/2] via 130.2.0.1, 00:00:16, FastEthernet4/0
+R    5.0.0.0/8 [120/1] via 130.2.0.1, 00:00:16, FastEthernet4/0
+R    6.0.0.0/8 [120/1] via 130.1.0.3, 00:00:27, FastEthernet5/0
+C    7.0.0.0/8 is directly connected, FastEthernet0/0
+     130.1.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.1.0.0/16 [120/3] via 130.2.0.1, 00:00:16, FastEthernet4/0
+C       130.1.0.0/24 is directly connected, FastEthernet5/0
+     130.2.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.2.0.0/16 is possibly down, routing via 130.1.0.3, FastEthernet5/0
+C       130.2.0.0/24 is directly connected, FastEthernet4/0
+R    192.168.0.0/24 [120/1] via 7.0.0.2, 00:00:23, FastEthernet0/0
+R    220.1.1.0/24 [120/1] via 130.2.0.1, 00:00:16, FastEthernet4/0
+R    220.1.2.0/24 [120/1] via 130.1.0.3, 00:00:27, FastEthernet5/0
+--------------------------------------------------
+
+
+--------------------------------------------------
+Fa 5/0 130.1.0.3
+Fa 0/0  6.0.0.1
+Fa 4/0  220.1.2.2
+
+R    1.0.0.0/8 [120/1] via 220.1.2.1, 00:00:27, FastEthernet4/0
+R    5.0.0.0/8 [120/2] via 130.1.0.2, 00:00:06, FastEthernet5/0
+               [120/2] via 220.1.2.1, 00:00:27, FastEthernet4/0
+C    6.0.0.0/8 is directly connected, FastEthernet0/0
+R    7.0.0.0/8 [120/1] via 130.1.0.2, 00:00:06, FastEthernet5/0
+C    130.1.0.0/16 is directly connected, FastEthernet5/0
+     130.2.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.2.0.0/16 is possibly down, routing via 130.1.0.2, FastEthernet5/0
+R       130.2.0.0/24 [120/1] via 130.1.0.2, 00:00:06, FastEthernet5/0
+R    192.168.0.0/24 [120/2] via 130.1.0.2, 00:00:06, FastEthernet5/0
+R    220.1.1.0/24 [120/1] via 220.1.2.1, 00:00:27, FastEthernet4/0
+C    220.1.2.0/24 is directly connected, FastEthernet4/0
+--------------------------------------------------
+
+
+--------------------------------------------------
+Fa 0/0 10.0.0.1
+Fa 0/1  6.0.0.2
+
+R    1.0.0.0/8 [120/2] via 6.0.0.1, 00:00:08, FastEthernet0/1
+R    5.0.0.0/8 [120/3] via 6.0.0.1, 00:00:08, FastEthernet0/1
+C    6.0.0.0/8 is directly connected, FastEthernet0/1
+R    7.0.0.0/8 [120/2] via 6.0.0.1, 00:00:08, FastEthernet0/1
+C    10.0.0.0/8 is directly connected, FastEthernet0/0
+R    130.1.0.0/16 [120/1] via 6.0.0.1, 00:00:08, FastEthernet0/1
+R    130.2.0.0/16 is possibly down, routing via 6.0.0.1, FastEthernet0/1
+R    192.168.0.0/24 [120/3] via 6.0.0.1, 00:00:08, FastEthernet0/1
+R    220.1.1.0/24 [120/2] via 6.0.0.1, 00:00:08, FastEthernet0/1
+R    220.1.2.0/24 [120/1] via 6.0.0.1, 00:00:08, FastEthernet0/1
+--------------------------------------------------
+
+
+--------------------------------------------------
+Fa0/0 5.1.0.1/16
+Fa1/0 5.2.0.1/16
+Fa5/0 220.1.1.1/24
+Fa4/0 130.2.0.1/24
+
+R    1.0.0.0/8 [120/1] via 220.1.1.2, 00:00:10, FastEthernet5/0
+     5.0.0.0/16 is subnetted, 2 subnets
+C       5.1.0.0 is directly connected, FastEthernet0/0
+C       5.2.0.0 is directly connected, FastEthernet1/0
+R    6.0.0.0/8 [120/2] via 130.2.0.2, 00:00:08, FastEthernet4/0
+               [120/2] via 220.1.1.2, 00:00:10, FastEthernet5/0
+R    7.0.0.0/8 [120/1] via 130.2.0.2, 00:00:08, FastEthernet4/0
+     130.1.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.1.0.0/16 [120/2] via 220.1.1.2, 00:00:10, FastEthernet5/0
+R       130.1.0.0/24 [120/1] via 130.2.0.2, 00:00:08, FastEthernet4/0
+     130.2.0.0/16 is variably subnetted, 2 subnets, 2 masks
+R       130.2.0.0/16 is possibly down, routing via 220.1.1.2, FastEthernet5/0
+C       130.2.0.0/24 is directly connected, FastEthernet4/0
+R    192.168.0.0/24 [120/2] via 130.2.0.2, 00:00:08, FastEthernet4/0
+C    220.1.1.0/24 is directly connected, FastEthernet5/0
+R    220.1.2.0/24 [120/1] via 220.1.1.2, 00:00:10, FastEthernet5/0
+--------------------------------------------------
+
+
+--------------------------------------------------
+Fa1/0 1.2.0.1/16
+Fa0/0 1.1.0.1/16
+Fa5/0 220.1.1.2/24
+Fa4/0 220.1.2.1 /24
+
+C       1.1.0.0 is directly connected, FastEthernet0/0
+C       1.2.0.0 is directly connected, FastEthernet1/0
+R    5.0.0.0/8 [120/1] via 220.1.1.1, 00:00:03, FastEthernet5/0
+R    6.0.0.0/8 [120/1] via 220.1.2.2, 00:00:14, FastEthernet4/0
+R    7.0.0.0/8 [120/2] via 220.1.2.2, 00:00:14, FastEthernet4/0
+               [120/2] via 220.1.1.1, 00:00:03, FastEthernet5/0
+R    130.1.0.0/16 [120/1] via 220.1.2.2, 00:00:14, FastEthernet4/0
+R    130.2.0.0/16 is possibly down, routing via 220.1.1.1, FastEthernet5/0
+R    192.168.0.0/24 [120/3] via 220.1.2.2, 00:00:14, FastEthernet4/0
+C    220.1.1.0/24 is directly connected, FastEthernet5/0
+C    220.1.2.0/24 is directly connected, FastEthernet4/0
+--------------------------------------------------
+
+
