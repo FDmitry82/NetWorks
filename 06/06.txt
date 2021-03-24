@@ -1,0 +1,50 @@
+﻿fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$ sudo gcc echo7.c -o echo7
+echo7.c: In function ‘main’:
+echo7.c:45:61: warning: passing argument 3 of ‘accept’ from incompatible pointer type [-Wincompatible-pointer-types]
+   45 |         sock = accept(listener, (struct sockaddr *)&client, &size);
+      |                                                             ^~~~~
+      |                                                             |
+      |                                                             size_t * {aka long unsigned int *}
+In file included from /usr/include/netinet/in.h:23,
+                 from /usr/include/arpa/inet.h:22,
+                 from echo7.c:1:
+/usr/include/x86_64-linux-gnu/sys/socket.h:233:28: note: expected ‘socklen_t * restrict’ {aka ‘unsigned int * restrict’} but argument is of type ‘size_t *’ {aka ‘long unsigned int *’}
+  233 |      socklen_t *__restrict __addr_len);
+      |      ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$
+fdmitry@Lin:~/Lesson$ sudo ./echo7
+[sudo] пароль для fdmitry:
+The server is up and running.
+
+Awaiting bytes from a client...
+Received: 8 bytes       From: 192.168.0.187:57064       Message:
+Privet
+ /r Sending the message back to 192.168.0.187:57064...
+
+Awaiting bytes from a client...
+Received: 16 bytes      From: 192.168.0.187:57064       Message:
+test ping-pong
+Sending the message back to 192.168.0.187:57064...
+
+Awaiting bytes from a client...
+
+
+
+Открываем другой терминал
+
+fdmitry@Lin:~$ telnet 192.168.0.187 7
+Trying 192.168.0.187...
+Connected to 192.168.0.187.
+Escape character is '^]'.
+Echo server. Hello, 192.168.0.187:57064. Type your messages below:
+Privet
+Privet
+test ping-pong
+test ping-pong
+
+
